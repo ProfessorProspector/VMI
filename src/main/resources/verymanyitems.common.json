@@ -1,9 +1,8 @@
 {
   "required": true,
-  "package": "prospector.vmi.mixin",
+  "package": "prospector.verymanyitems.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "GuiContainerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,31 +1,24 @@
-package prospector.vmi.mixin;
+package prospector.verymanyitems.gui;
 
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiContainer;
+import net.minecraft.class_308;
+import net.minecraft.client.MinecraftGame;
+import net.minecraft.client.gui.Drawable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import prospector.verymanyitems.VMIGuiContainer;
 
-@Mixin(GuiContainer.class)
-public class GuiContainerMixin extends Gui {
+public class VMIGui extends Drawable {
 
-	@Shadow public int containerWidth;
-	@Shadow public int containerHeight;
-	@Shadow public int left;
-	@Shadow public int top;
+	public void draw(int mouseX, int mouseY, float elapsedTicks, VMIGuiContainer gui) {
+		int left = gui.getLeft();
+		int top = gui.getTop();
+		int containerWidth = gui.getContainerWidth();
+		int containerHeight = gui.getContainerHeight();
+		int width = gui.getWidth();
+		int height = gui.getHeight();
+		MinecraftGame game = MinecraftGame.getInstance();
 
-	@Inject(at = @At("HEAD"), method = "onInitialized()V")
-	public void onInitialized(CallbackInfo info) {
-
-	}
-
-	@Inject(at = @At("RETURN"), method = "draw(IIF)V")
-	public void draw(int mouseX, int mouseY, float elapsedTicks, CallbackInfo info) {
 		int spacing = 2;
 		int defaultX = left + containerWidth + spacing * 2;
 		int x = left + containerWidth + spacing * 2;
@@ -34,11 +27,12 @@ public class GuiContainerMixin extends Gui {
 		y += spacing * 2;
 		boolean drawTooltip = false;
 		int tooltipX = 0, tooltipY = 0;
-		ItemStack tooltipStack = ItemStack.NULL_STACK;
+		ItemStack tooltipStack = ItemStack.AIR;
+		class_308.method_1453();
 		for (Item item : Registry.ITEMS) {
 			x += 2;
 			ItemStack stack = item.getDefaultStack();
-			if (!stack.isInvalid()) {
+			if (!stack.isEmpty()) {
 				game.getItemRenderer().renderItemAndGlowInGui(stack, x, y);
 				if (mouseX >= x && mouseX <= x + 16 && mouseY >= y && mouseY <= y + 16) {
 					drawTooltip = true;
@@ -59,7 +53,7 @@ public class GuiContainerMixin extends Gui {
 		}
 		if (drawTooltip) {
 			drawGradientRect(tooltipX, tooltipY, tooltipX + 16, tooltipY + 16, 0x80FFFFFF, 0x80FFFFFF);
-			drawStackTooltip(tooltipStack, mouseX, mouseY);
+			gui.drawStackTooltip(tooltipStack, mouseX, mouseY);
 		}
 	}
 }

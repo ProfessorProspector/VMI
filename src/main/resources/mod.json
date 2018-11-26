@@ -1,11 +1,12 @@
 {
-  "id": "vmi",
+  "id": "verymanyitems",
   "name": "Very Many Items",
   "version": "0.1.0",
   "side": "universal",
-  "initializer": "prospector.vmi.VMI",
+  "initializer": "prospector.verymanyitems.VeryManyItems",
+  "description": "Super simple item list on the right side of the inventory to view all items.",
   "mixins": {
-    "client": "vmi.client.json",
-    "common": "vmi.common.json"
+    "client": "verymanyitems.client.json",
+    "common": "verymanyitems.common.json"
   }
 }
