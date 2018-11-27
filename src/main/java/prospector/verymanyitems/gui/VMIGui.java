@@ -27,7 +27,7 @@ public class VMIGui extends Drawable {
 		y += spacing * 2;
 		boolean drawTooltip = false;
 		int tooltipX = 0, tooltipY = 0;
-		ItemStack tooltipStack = ItemStack.AIR;
+		ItemStack tooltipStack = ItemStack.EMPTY;
 		class_308.method_1453();
 		for (Item item : Registry.ITEMS) {
 			x += 2;
