@@ -1,7 +1,7 @@
 package prospector.verymanyitems.gui;
 
 import net.minecraft.class_308;
-import net.minecraft.client.MinecraftGame;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Drawable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,7 +17,7 @@ public class VMIGui extends Drawable {
 		int containerHeight = gui.getContainerHeight();
 		int width = gui.getWidth();
 		int height = gui.getHeight();
-		MinecraftGame game = MinecraftGame.getInstance();
+		MinecraftClient client = MinecraftClient.getInstance();
 
 		int spacing = 2;
 		int defaultX = left + containerWidth + spacing * 2;
@@ -33,7 +33,7 @@ public class VMIGui extends Drawable {
 			x += 2;
 			ItemStack stack = item.getDefaultStack();
 			if (!stack.isEmpty()) {
-				game.getItemRenderer().renderItemAndGlowInGui(stack, x, y);
+				client.getItemRenderer().renderItemAndGlowInGui(stack, x, y);
 				if (mouseX >= x && mouseX <= x + 16 && mouseY >= y && mouseY <= y + 16) {
 					drawTooltip = true;
 					tooltipX = x;
