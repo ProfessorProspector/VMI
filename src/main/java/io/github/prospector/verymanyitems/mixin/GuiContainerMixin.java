@@ -1,4 +1,4 @@
-package prospector.verymanyitems.mixin;
+package io.github.prospector.verymanyitems.mixin;
 
 import net.minecraft.client.gui.ContainerGui;
 import net.minecraft.client.gui.Gui;
@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import prospector.verymanyitems.VMIGuiContainer;
-import prospector.verymanyitems.gui.VMIGui;
+import io.github.prospector.verymanyitems.VMIGuiContainer;
+import io.github.prospector.verymanyitems.gui.VMIGui;
 
 import java.util.List;
 

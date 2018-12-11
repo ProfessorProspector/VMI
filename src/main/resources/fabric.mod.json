@@ -3,10 +3,7 @@
   "name": "Very Many Items",
   "version": "0.1.0",
   "side": "universal",
-  "initializer": "prospector.verymanyitems.VeryManyItems",
+  "initializer": "io.github.prospector.verymanyitems.VeryManyItems",
   "description": "Super simple item list on the right side of the inventory to view all items.",
-  "mixins": {
-    "client": "verymanyitems.client.json",
-    "common": "verymanyitems.common.json"
-  }
+  "mixins": { }
 }

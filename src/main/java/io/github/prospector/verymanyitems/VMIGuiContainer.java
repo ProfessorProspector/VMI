@@ -1,4 +1,4 @@
-package prospector.verymanyitems;
+package io.github.prospector.verymanyitems;
 
 import net.minecraft.item.ItemStack;
 

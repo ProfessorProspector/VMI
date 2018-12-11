@@ -1,4 +1,4 @@
-package prospector.verymanyitems.gui;
+package io.github.prospector.verymanyitems.gui;
 
 import net.minecraft.class_308;
 import net.minecraft.client.MinecraftClient;
@@ -6,7 +6,7 @@ import net.minecraft.client.gui.Drawable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
-import prospector.verymanyitems.VMIGuiContainer;
+import io.github.prospector.verymanyitems.VMIGuiContainer;
 
 public class VMIGui extends Drawable {
 
