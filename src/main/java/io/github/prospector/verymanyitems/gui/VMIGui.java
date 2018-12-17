@@ -1,12 +1,12 @@
 package io.github.prospector.verymanyitems.gui;
 
-import net.minecraft.class_308;
+import io.github.prospector.verymanyitems.VMIGuiContainer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Drawable;
+import net.minecraft.client.render.GuiLighting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
-import io.github.prospector.verymanyitems.VMIGuiContainer;
 
 public class VMIGui extends Drawable {
 
@@ -28,8 +28,8 @@ public class VMIGui extends Drawable {
 		boolean drawTooltip = false;
 		int tooltipX = 0, tooltipY = 0;
 		ItemStack tooltipStack = ItemStack.EMPTY;
-		class_308.method_1453();
-		for (Item item : Registry.ITEMS) {
+		GuiLighting.enableForItems();
+		for (Item item : Registry.ITEM) {
 			x += 2;
 			ItemStack stack = item.getDefaultStack();
 			if (!stack.isEmpty()) {
